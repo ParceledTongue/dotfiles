@@ -1,0 +1,20 @@
+[hooks]
+pretxncommit.commitmsg=python:~/scripts/stop_me_from_shooting_myself_in_the_foot.py:enforce_commitmsg
+
+[extdiff]
+cmd.opendiff = opendiff-w
+
+[merge-tools]
+filemerge.executable = ~/scripts/opendiff-w
+filemerge.args = $local $other -ancestor $base -merge $output
+
+[extensions]
+largefiles=
+fetch=
+progress=
+rebase=
+strip=
+extdiff=
+
+[ui]
+username = zpalumbo
