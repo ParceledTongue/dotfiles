@@ -22,7 +22,7 @@ export PATH="$HOME/tools/arcanist/bin:$PATH"
 eval $(thefuck --alias)
 
 # Path to the bash it configuration
-export BASH_IT="/Users/zpalumbo/.bash_it"
+export BASH_IT="$HOME/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
