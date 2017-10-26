@@ -5,6 +5,12 @@ export EDITOR="$VISUAL"
 # autocomplete
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+# ls colors
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+alias ls='ls -GFh'
+
 # short mimjava alias
 shopt -s cdable_vars
 export mj=$HOME/eclipse-workspace/mimjava
