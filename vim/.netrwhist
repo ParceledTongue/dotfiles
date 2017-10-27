@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/zpalumbo/eclipse-workspace/mimjava'
-let g:netrw_dirhist_2='/Users/zpalumbo/eclipse-workspace/mimjava/.hglf'
-let g:netrw_dirhist_3='/Users/zpalumbo/.vim'
-let g:netrw_dirhist_4='/Users/zpalumbo/.bash_it/themes/minimal'
-let g:netrw_dirhist_5='/Users/zpalumbo/eclipse-workspace/mimjava/.hg'
-let g:netrw_dirhist_6='/Users/zpalumbo/dotfiles/bash_it/themes'
