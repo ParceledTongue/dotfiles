@@ -1,5 +1,5 @@
 [hooks]
-pretxncommit.commitmsg=python:~/scripts/stop_me_from_shooting_myself_in_the_foot.py:enforce_commitmsg
+# pretxncommit.commitmsg=python:~/scripts/stop_me_from_shooting_myself_in_the_foot.py:enforce_commitmsg
 
 [extdiff]
 cmd.opendiff = opendiff-w
@@ -15,6 +15,7 @@ progress=
 rebase=
 strip=
 extdiff=
+shelve=
 
 [ui]
 username = zpalumbo
