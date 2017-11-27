@@ -17,7 +17,7 @@ alias pip='pip3'
 
 # short mimjava alias
 shopt -s cdable_vars
-export mj=$HOME/eclipse-workspace/mimjava
+export mj=$HOME/mim-workspace/stable/mimjava
 
 # arc stuff
 export PATH="$HOME/tools/arcanist/bin:$PATH"
