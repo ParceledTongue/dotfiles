@@ -16,6 +16,7 @@ rebase=
 strip=
 extdiff=
 shelve=
+graphlog=
 
 [ui]
 username = zpalumbo
