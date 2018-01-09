@@ -27,6 +27,7 @@ pager=LESS='FSRX' less
 attend=cat, diff, glog, log, incoming, outgoing, lg, show, wiplog
 
 [alias]
+pu=pull --update
 wip=glog --rev=wip --template=wip
 wiplog=glog --template=wip
 desc=log -r $1 --template "{desc}"
