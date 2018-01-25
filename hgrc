@@ -40,6 +40,7 @@ wip = '{label("log.branch", ifeq(branch, "default", "", branch))} {label("change
 
 [color]
 mode=terminfo
+diff.trailingwhitespace=none
 
 # Custom Colors
 color.orange = 202
