@@ -20,6 +20,9 @@ shopt -s cdable_vars
 export mj=$HOME/mim-workspace/stable/mimjava
 export r68=$HOME/mim-workspace/release-6.8/mimjava
 
+# local bin
+export PATH="$HOME/.local/bin:$PATH"
+
 # arc stuff
 export PATH="$HOME/tools/arcanist/bin:$PATH"
 
