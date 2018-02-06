@@ -17,6 +17,7 @@ strip=
 extdiff=
 shelve=
 graphlog=
+purge=
 
 [ui]
 username = zpalumbo
