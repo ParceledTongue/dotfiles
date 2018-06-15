@@ -11,10 +11,6 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
 
-# default to python3
-alias python='python3'
-alias pip='pip3'
-
 # short mimjava alias
 shopt -s cdable_vars
 export mj=$HOME/mim-workspace/stable/mimjava
@@ -25,6 +21,9 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # arc stuff
 export PATH="$HOME/tools/arcanist/bin:$PATH"
+
+# python3 symlink overrides
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # fuck
 eval $(thefuck --alias)
