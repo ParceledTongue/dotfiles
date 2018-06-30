@@ -2,6 +2,7 @@
 call plug#begin()
 Plug 'dracula/vim'
 Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " colors
