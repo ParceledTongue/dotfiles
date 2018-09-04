@@ -14,6 +14,7 @@ alias ls='ls -GFh'
 # short mimjava alias
 shopt -s cdable_vars
 export mj=$HOME/mim-workspace/stable/mimjava
+export r69=$HOME/mim-workspace/release-6.9/mimjava
 export r68=$HOME/mim-workspace/release-6.8/mimjava
 
 # home bin (custom commands)
