@@ -6,7 +6,7 @@ Installation
 ------------
 
 ``` bash
-git clone git://github.com/ParceledTongue/dotfiles.git
+git clone https://github.com/ParceledTongue/dotfiles.git
 cd ~/dotfiles
 chmod +x makesymlinks.sh
 ./makesymlinks.sh
