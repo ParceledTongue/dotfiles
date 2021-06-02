@@ -138,8 +138,12 @@ alias vim='nvim'
 # Enable Mercurial VCS info (wizard will disable by default because it's slow)
 typeset -g POWERLEVEL9K_VCS_BACKENDS=(git hg)
 
-# MIM logo instead of OS symbol (for work computer--requires patched font)
-if [[ $(hostname) == "MVC0621.local" ]]; then
+# MIM logo instead of OS symbol (for work computers--requires patched font)
+work_computers=(
+  "MVC0621.local"
+  "MVC0794.local"
+)
+if [[ ${my_array[(ie)$(hostname)]} -le ${#my_array} ]]; then
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 fi
 
