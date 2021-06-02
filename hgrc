@@ -1,12 +1,13 @@
 [hooks]
-pretxncommit.commitmsg=python:~/scripts/stop_me_from_shooting_myself_in_the_foot.py:enforce_commitmsg
-
-[extdiff]
-cmd.opendiff = opendiff-w
+# pretxncommit.commitmsg=python:~/scripts/stop_me_from_shooting_myself_in_the_foot.py:enforce_commitmsg
 
 [merge-tools]
-filemerge.executable = ~/bin/opendiff-w
-filemerge.args = $local $other -ancestor $base -merge $output
+p4.priority = 60
+p4.premerge = True
+p4.executable = /Applications/p4merge.app/Contents/MacOS/p4merge
+p4.gui = True
+p4.args = $base $local $other $output
+p4.binary = False
 
 [extensions]
 largefiles=
@@ -19,6 +20,7 @@ shelve=
 graphlog=
 purge=
 histedit=
+evolve=
 
 [ui]
 username = zpalumbo
@@ -33,6 +35,7 @@ pu=pull --update
 wip=glog --rev=wip --template=wip
 wiplog=glog --template=wip
 desc=log -r $1 --template "{desc}"
+gc=strip --hidden -r 'extinct()'
 
 [revsetalias]
 wip = (parents(not public()) or not public() or . or head()) and (not obsolete() or orphan()^) and not closed()

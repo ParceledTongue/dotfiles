@@ -1,8 +1,9 @@
 " vim-plug
-call plug#begin()
+call plug#begin('~/.config/nvim')
 Plug 'dracula/vim'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'rust-lang/rust.vim'
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 
 " colors
@@ -13,6 +14,9 @@ let vim_markdown_preview_github=1 " use github-style markdown
 
 " .pl is always prolog (never perl)
 au FileType perl set filetype=prolog
+
+" Enable syntax highlighting
+syntax on
 
 " misc.
 set tabstop=4

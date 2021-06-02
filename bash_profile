@@ -14,11 +14,16 @@ alias ls='ls -GFh'
 # short mimjava alias
 shopt -s cdable_vars
 export mj=$HOME/mim-workspace/stable/mimjava
+export r71=$HOME/mim-workspace/release-7.1/mimjava
+export r70=$HOME/mim-workspace/release-7.0/mimjava
 export r69=$HOME/mim-workspace/release-6.9/mimjava
 export r68=$HOME/mim-workspace/release-6.8/mimjava
 
 # home bin (custom commands)
 export PATH="$HOME/bin:$PATH"
+
+# coreutils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # arc stuff
 export PATH="$HOME/tools/arcanist/bin:$PATH"

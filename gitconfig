@@ -1,3 +1,5 @@
 [user]
 	email = zach@palumbo.io
 	name = Zach Palumbo
+[pull]
+	rebase = false
