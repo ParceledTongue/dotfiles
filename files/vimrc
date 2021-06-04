@@ -4,6 +4,8 @@ Plug 'dracula/vim'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'rust-lang/rust.vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " colors
@@ -17,6 +19,9 @@ au FileType perl set filetype=prolog
 
 " Enable syntax highlighting
 syntax on
+
+" Airline
+let g:airline_powerline_fonts = 1
 
 " misc.
 set tabstop=4
