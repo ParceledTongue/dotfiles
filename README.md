@@ -12,5 +12,5 @@ chmod +x makesymlinks.sh
 ./makesymlinks.sh
 ```
 
-[1]: http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/ 
+[1]: http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
 
