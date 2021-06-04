@@ -143,7 +143,7 @@ work_computers=(
   "MVC0621.local"
   "MVC0794.local"
 )
-if [[ ${my_array[(ie)$(hostname)]} -le ${#my_array} ]]; then
+if (($work_computers[(Ie)$(hostname)])); then
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 fi
 
