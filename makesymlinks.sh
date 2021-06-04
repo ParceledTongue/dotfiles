@@ -5,7 +5,7 @@
 ############################
 
 backup=~/dotfiles_old
-repo_files=($(pwd)/files/*)
+repo_files=("$(pwd)"/files/*)
 
 if [ -e $backup ]; then
   echo "Backup destination $backup already exists."
@@ -16,12 +16,17 @@ echo "Creating $backup for backup of any existing dotfiles in ~"
 mkdir -p $backup
 echo "...done"
 
-for repo_file in ${repo_files[@]}; do
+for repo_file in "${repo_files[@]}"; do
   fname=$(basename "$repo_file")
   home_file=~/.$fname
   if [ -e "$home_file" ]; then
-    echo "Moving $home_file to $backup."
-    mv "$home_file" $backup
+    if [[ -L "$home_file" ]]; then
+      echo "Deleting old symlink $home_file."
+      rm "$home_file"
+    else
+      echo "Moving $home_file to $backup."
+      mv "$home_file" $backup
+    fi
   fi
   echo "Creating symlink for $fname."
   ln -s "$repo_file" "$home_file"
