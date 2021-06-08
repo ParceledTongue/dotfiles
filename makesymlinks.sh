@@ -19,16 +19,25 @@ echo "...done"
 for repo_file in "${repo_files[@]}"; do
   fname=$(basename "$repo_file")
   home_file=~/.$fname
+  should_create=true
   if [ -e "$home_file" ]; then
     if [[ -L "$home_file" ]]; then
-      echo "Deleting old symlink $home_file."
-      rm "$home_file"
+      existing_link=$(readlink "$home_file")
+      if [[ $existing_link -ef $repo_file ]]; then
+        echo "Symlink for $fname already exists."
+        should_create=false
+      else
+        echo "Deleting old $fname symlink (pointed to $existing_link)."
+        rm "$home_file"
+      fi
     else
       echo "Moving $home_file to $backup."
       mv "$home_file" $backup
     fi
   fi
-  echo "Creating symlink for $fname."
-  ln -s "$repo_file" "$home_file"
+  if [ "$should_create" = true ]; then
+    echo "Creating symlink for $fname."
+    ln -s "$repo_file" "$home_file"
+  fi
 done
 
