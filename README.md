@@ -8,9 +8,10 @@ Installation
 ``` console
 $ git clone https://github.com/ParceledTongue/dotfiles.git
 $ cd dotfiles
-$ chmod +x makesymlinks.sh
 $ ./makesymlinks.sh
 ```
 
-[1]: http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
+Several other dependencies are necessary to get everything working properly, particularly [oh-my-zsh][2].
 
+[1]: http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
+[2]: https://ohmyz.sh/#install
