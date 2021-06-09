@@ -75,3 +75,5 @@ changeset.draft = brown bold
 log.node = lightpink
 log.nodehere = lightpink softgray_background
 
+%include ~/.hgrc.local
+
