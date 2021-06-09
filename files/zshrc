@@ -100,6 +100,16 @@ plugins=(
   wd
 )
 
+# oh-my-zsh wants to change the permissions of certain autocomplete
+# directories, but I work on some machines without such permissions. Don't
+# run the check in this case.
+limited_permission_machines=(
+  "attila.mimsoftware.com"
+)
+
+if (($limited_permission_machines[(Ie)$(hostname)])); then
+  ZSH_DISABLE_COMPFIX=true
+fi
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -147,6 +157,7 @@ typeset -g POWERLEVEL9K_VCS_BACKENDS=(git hg)
 work_computers=(
   "MVC0621.local"
   "MVC0794.local"
+  "attila.mimsoftware.com"
 )
 if (($work_computers[(Ie)$(hostname)])); then
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
