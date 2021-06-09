@@ -1,3 +1,8 @@
+# use zsh if available
+if type zsh &> /dev/null; then
+  exec -l zsh
+fi
+
 # default editor
 preferred_editor=nvim
 if type "$preferred_editor" &> /dev/null; then
