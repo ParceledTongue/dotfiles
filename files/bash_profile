@@ -1,6 +1,14 @@
 # default editor
-export VISUAL=vim
-export EDITOR="$VISUAL"
+preferred_editor=nvim
+if type "$preferred_editor" &> /dev/null; then
+  export VISUAL="$preferred_editor"
+  export EDITOR="$preferred_editor"
+fi
+
+if type nvim &> /dev/null; then
+  alias vi=nvim
+  alias vim=nvim
+fi
 
 # autocomplete
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
@@ -31,15 +39,13 @@ export PATH="$HOME/tools/arcanist/bin:$PATH"
 # python3 symlink overrides
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
-# fuck
-eval $(thefuck --alias)
-
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-export BASH_IT_THEME='purity'
+export THEME_CHECK_SUDO=false
+export BASH_IT_THEME='powerline-multiline'
 
 
 # (Advanced): Change this to the name of your remote repo if you
