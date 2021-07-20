@@ -25,6 +25,12 @@ evolve=
 [ui]
 username = zpalumbo
 
+[paths]
+70 = ~/mim-workspace/release-7.0/mimjava
+71 = ~/mim-workspace/release-7.1/mimjava
+stable = ~/mim-workspace/stable/mimjava
+
+
 # wip command
 [pager]
 pager=LESS='FSRX' less
@@ -36,6 +42,7 @@ wip=glog --rev=wip --template=wip
 wiplog=glog --template=wip
 desc=log -r $1 --template "{desc}"
 gc=strip --hidden -r 'extinct()'
+master=up --rev "bookmark(master)"
 
 [revsetalias]
 wip = (parents(not public()) or not public() or . or head()) and (not obsolete() or orphan()^) and not closed()
