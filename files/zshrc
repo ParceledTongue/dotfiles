@@ -163,3 +163,6 @@ if (($work_computers[(Ie)$(hostname)])); then
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 fi
 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
