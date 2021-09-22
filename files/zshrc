@@ -110,6 +110,8 @@ limited_permission_machines=(
 if (($limited_permission_machines[(Ie)$(hostname)])); then
   ZSH_DISABLE_COMPFIX=true
 fi
+
+# Main oh-my-zsh config
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -138,6 +140,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias pip=/usr/local/bin/pip3
+
 if type "nvim" &> /dev/null; then
   alias vi="nvim"
   alias vim="nvim"
@@ -163,6 +166,9 @@ if (($work_computers[(Ie)$(hostname)])); then
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 fi
 
-
+# Shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Named PC home dir for WSL
+[[ "Zach-PC" =~ "$(hostname)" ]] && hash -d winhome=/mnt/c/Users/Zach
 
