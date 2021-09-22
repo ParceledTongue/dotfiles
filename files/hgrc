@@ -28,6 +28,7 @@ username = zpalumbo
 [paths]
 70 = ~/mim-workspace/release-7.0/mimjava
 71 = ~/mim-workspace/release-7.1/mimjava
+72 = ~/mim-workspace/release-7.2/mimjava
 stable = ~/mim-workspace/stable/mimjava
 
 
