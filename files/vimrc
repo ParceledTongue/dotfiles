@@ -7,13 +7,14 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 " colors
 color dracula
 
 " vim-markdown-preview
-let vim_markdown_preview_github=1 " use github-style markdown
+let vim_markdown_preview_github = 1 " use github-style markdown
 
 " .pl is always prolog (never perl)
 au FileType perl set filetype=prolog
@@ -24,10 +25,14 @@ syntax on
 " Airline
 let g:airline_powerline_fonts = 1
 
+" ale
+let g:ale_cursor_detail = 1
+let g:ale_floating_preview = 1
+
 " misc.
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
 set backspace=indent,eol,start
