@@ -1,16 +1,3 @@
-# PATH
-path+=$HOME/bin
-path+=$HOME/.cargo/bin
-path+=/usr/local/opt/coreutils/libexec/gnubin
-path+=$HOME/tools/arcanist/bin
-
-# Default editor
-preferred_editor=nvim
-if type "$preferred_editor" &> /dev/null; then
-  export VISUAL="$preferred_editor"
-  export EDITOR="$preferred_editor"
-fi
-
 #################
 # Powerlevel10k #
 #################
@@ -111,6 +98,14 @@ if (($limited_permission_machines[(Ie)$(hostname)])); then
   ZSH_DISABLE_COMPFIX=true
 fi
 
+# In the event that an update is available, oh-my-zsh will ask if we want to
+# update via interactive prompt. This is a problem for IntelliJ when it loads
+# its terminal, so we disable the prompt in this case. 
+# https://youtrack.jetbrains.com/articles/IDEA-A-19/Shell-Environment-Loading
+if [ -n "$INTELLIJ_ENVIRONMENT_READER" ]; then
+  DISABLE_UPDATE_PROMPT=true
+fi
+
 # Main oh-my-zsh config
 source $ZSH/oh-my-zsh.sh
 
@@ -153,6 +148,19 @@ fi
 ##########
 # Custom #
 ##########
+
+# PATH
+path+=$HOME/bin
+path+=$HOME/.cargo/bin
+path+=/usr/local/opt/coreutils/libexec/gnubin
+path+=$HOME/tools/arcanist/bin
+
+# Default editor
+preferred_editor=nvim
+if type "$preferred_editor" &> /dev/null; then
+  export VISUAL="$preferred_editor"
+  export EDITOR="$preferred_editor"
+fi
 
 # Enable Mercurial VCS info (wizard will disable by default because it's slow)
 typeset -g POWERLEVEL9K_VCS_BACKENDS=(git hg)
