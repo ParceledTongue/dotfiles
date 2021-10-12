@@ -178,9 +178,12 @@ fi
 # Shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Named PC home dir for WSL
-[[ "Zach-PC" =~ "$(hostname)" ]] && hash -d win=/mnt/c/Users/zach
+# WSL stuff
+if uname -r |grep -q 'Microsoft' ; then
+  # Named PC home dir
+  [[ "Zach-PC" =~ "$(hostname)" ]] && hash -d win=/mnt/c/Users/zach
 
-# Browser var for WSL
-[[ "Zach-PC" =~ "$(hostname)" ]] && export BROWSER=wslview
+  # Browser var
+  export BROWSER=wslview
+fi
 
