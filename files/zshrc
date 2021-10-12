@@ -181,3 +181,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Named PC home dir for WSL
 [[ "Zach-PC" =~ "$(hostname)" ]] && hash -d win=/mnt/c/Users/zach
 
+# Browser var for WSL
+[[ "Zach-PC" =~ "$(hostname)" ]] && export BROWSER=wslview
+
