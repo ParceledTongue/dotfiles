@@ -179,7 +179,7 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # WSL stuff
-if uname -r |grep -q 'Microsoft' ; then
+if uname -r | grep -iq 'Microsoft' ; then
   # Named PC home dir
   [[ "Zach-PC" =~ "$(hostname)" ]] && hash -d win=/mnt/c/Users/zach
 
