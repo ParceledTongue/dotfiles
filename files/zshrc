@@ -100,7 +100,7 @@ fi
 
 # In the event that an update is available, oh-my-zsh will ask if we want to
 # update via interactive prompt. This is a problem for IntelliJ when it loads
-# its terminal, so we disable the prompt in this case. 
+# its terminal, so we disable the prompt in this case.
 # https://youtrack.jetbrains.com/articles/IDEA-A-19/Shell-Environment-Loading
 if [ -n "$INTELLIJ_ENVIRONMENT_READER" ]; then
   DISABLE_UPDATE_PROMPT=true
@@ -179,5 +179,5 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Named PC home dir for WSL
-[[ "Zach-PC" =~ "$(hostname)" ]] && hash -d winhome=/mnt/c/Users/Zach
+[[ "Zach-PC" =~ "$(hostname)" ]] && hash -d win=/mnt/c/Users/zach
 
