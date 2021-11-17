@@ -185,5 +185,17 @@ if uname -r | grep -iq 'Microsoft' ; then
 
   # Browser var
   export BROWSER=wslview
+
+  # open command (normal `open` doesn't exist for WSL)
+  function open () {
+    if [ ! -z $1 ]; then
+      winpath=$(readlink -m $1)
+    else
+      winpath=$(pwd)
+    fi
+    winpath=`echo $winpath | sed 's/\/mnt\/c\//C:\//g'`
+    winpath=`echo $winpath | sed 's/\//\\\\/g'`
+    explorer.exe $winpath
+  }
 fi
 
