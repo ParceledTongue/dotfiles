@@ -167,7 +167,9 @@ typeset -g POWERLEVEL9K_VCS_BACKENDS=(git hg)
 
 # MIM logo instead of OS symbol (for work computers--requires patched font)
 work_computers=(
+  "MVC0621"
   "MVC0621.local"
+  "MVC0794"
   "MVC0794.local"
   "attila.mimsoftware.com"
 )
