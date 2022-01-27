@@ -4,13 +4,9 @@ if type zsh &> /dev/null; then
 fi
 
 # default editor
-preferred_editor=nvim
-if type "$preferred_editor" &> /dev/null; then
+if type nvim &> /dev/null; then
   export VISUAL="$preferred_editor"
   export EDITOR="$preferred_editor"
-fi
-
-if type nvim &> /dev/null; then
   alias vi=nvim
   alias vim=nvim
 fi
@@ -24,25 +20,11 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
 
-# short mimjava alias
-shopt -s cdable_vars
-export mj=$HOME/mim-workspace/stable/mimjava
-export r71=$HOME/mim-workspace/release-7.1/mimjava
-export r70=$HOME/mim-workspace/release-7.0/mimjava
-export r69=$HOME/mim-workspace/release-6.9/mimjava
-export r68=$HOME/mim-workspace/release-6.8/mimjava
-
-# home bin (custom commands)
+# home bin
 export PATH="$HOME/bin:$PATH"
 
 # coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
-# arc stuff
-export PATH="$HOME/tools/arcanist/bin:$PATH"
-
-# python3 symlink overrides
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash_it"
@@ -51,7 +33,6 @@ export BASH_IT="$HOME/.bash_it"
 # location /.bash_it/themes/
 export THEME_CHECK_SUDO=false
 export BASH_IT_THEME='powerline-multiline'
-
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
@@ -94,8 +75,8 @@ export SCM_CHECK=true
 # after enabling or disabling aliases, plugins, and completions.
 # export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
 
-# Load Bash It
-source "$BASH_IT"/bash_it.sh
+# Load Bash It (if available)
+if [ -e "$BASH_IT" ]; then
+  source "$BASH_IT"/bash_it.sh
+fi
 
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"

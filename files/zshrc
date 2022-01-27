@@ -154,6 +154,8 @@ path+=$HOME/bin
 path+=$HOME/.cargo/bin
 path+=/usr/local/opt/coreutils/libexec/gnubin
 path+=$HOME/tools/arcanist/bin
+path+=/opt/homebrew/opt/php@8.0/bin
+path+=/opt/homebrew/opt/php@8.0/sbin
 
 # Default editor
 preferred_editor=nvim
@@ -169,8 +171,8 @@ typeset -g POWERLEVEL9K_VCS_BACKENDS=(git hg)
 work_computers=(
   "MVC0621"
   "MVC0621.local"
-  "MVC0794"
-  "MVC0794.local"
+  "MVC1029"
+  "MVC1029.local"
   "attila.mimsoftware.com"
 )
 if (($work_computers[(Ie)$(hostname)])); then
