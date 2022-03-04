@@ -177,6 +177,8 @@ path+=/opt/homebrew/opt/python@3.10/bin
 path+=/opt/homebrew/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/bin
 path+=/opt/homebrew/opt/php@8.0/bin
 path+=/opt/homebrew/opt/php@8.0/sbin
+path+=/usr/local/opt/php@8.0/bin
+path+=/usr/local/opt/php@8.0/sbin
 
 # Default editor
 preferred_editor=nvim
