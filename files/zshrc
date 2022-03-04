@@ -1,3 +1,21 @@
+##################
+# Custom (early) #
+##################
+
+# Custom completion (here because it must be done before compinit)
+# via https://docs.brew.sh/Shell-Completion
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# Jenv (up here because it can produce console output)
+path+=$HOME/.jenv/bin
+eval "$(jenv init -)"
+
 #################
 # Powerlevel10k #
 #################
@@ -154,6 +172,9 @@ path+=$HOME/bin
 path+=$HOME/.cargo/bin
 path+=/usr/local/opt/coreutils/libexec/gnubin
 path+=$HOME/tools/arcanist/bin
+path+=$HOME/.jenv/bin
+path+=/opt/homebrew/opt/python@3.10/bin
+path+=/opt/homebrew/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/bin
 path+=/opt/homebrew/opt/php@8.0/bin
 path+=/opt/homebrew/opt/php@8.0/sbin
 
