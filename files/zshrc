@@ -156,6 +156,8 @@ path+=/usr/local/opt/coreutils/libexec/gnubin
 path+=$HOME/tools/arcanist/bin
 path+=/opt/homebrew/opt/php@8.0/bin
 path+=/opt/homebrew/opt/php@8.0/sbin
+path+=/usr/local/opt/php@8.0/bin
+path+=/usr/local/opt/php@8.0/sbin
 
 # Default editor
 preferred_editor=nvim
