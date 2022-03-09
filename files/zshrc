@@ -13,8 +13,10 @@ then
 fi
 
 # Jenv (up here because it can produce console output)
-path+=$HOME/.jenv/bin
-eval "$(jenv init -)"
+if type "jenv" &> /dev/null; then
+  path+=$HOME/.jenv/bin
+  eval "$(jenv init -)"
+fi
 
 #################
 # Powerlevel10k #
