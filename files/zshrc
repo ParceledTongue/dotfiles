@@ -1,3 +1,23 @@
+##################
+# Custom (early) #
+##################
+
+# Custom completion (here because it must be done before compinit)
+# via https://docs.brew.sh/Shell-Completion
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# Jenv (up here because it can produce console output)
+if type "jenv" &> /dev/null; then
+  path+=$HOME/.jenv/bin
+  eval "$(jenv init -)"
+fi
+
 #################
 # Powerlevel10k #
 #################
@@ -154,6 +174,13 @@ path+=$HOME/bin
 path+=$HOME/.cargo/bin
 path+=/usr/local/opt/coreutils/libexec/gnubin
 path+=$HOME/tools/arcanist/bin
+path+=$HOME/.jenv/bin
+path+=/opt/homebrew/opt/python@3.10/bin
+path+=/opt/homebrew/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/bin
+path+=/opt/homebrew/opt/php@8.0/bin
+path+=/opt/homebrew/opt/php@8.0/sbin
+path+=/usr/local/opt/php@8.0/bin
+path+=/usr/local/opt/php@8.0/sbin
 
 # Default editor
 preferred_editor=nvim
@@ -169,8 +196,8 @@ typeset -g POWERLEVEL9K_VCS_BACKENDS=(git hg)
 work_computers=(
   "MVC0621"
   "MVC0621.local"
-  "MVC0794"
-  "MVC0794.local"
+  "MVC1029"
+  "MVC1029.local"
   "attila.mimsoftware.com"
 )
 if (($work_computers[(Ie)$(hostname)])); then

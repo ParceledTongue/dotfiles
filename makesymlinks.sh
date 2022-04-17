@@ -1,8 +1,8 @@
 #!/bin/bash
 
-############################
-# makesymlinks.sh
-############################
+###################
+# makesymlinks.sh #
+###################
 
 backup=~/dotfiles_old
 repo_files=("$(pwd)"/files/*)

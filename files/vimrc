@@ -1,3 +1,10 @@
+" Install vim-plug if not found
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " vim-plug
 call plug#begin('~/.config/nvim')
 Plug 'dracula/vim'
@@ -9,14 +16,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'eslint/eslint'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'ellisonleao/glow.nvim'
 call plug#end()
 
 " colors
 color dracula
-
-" vim-markdown-preview
-let vim_markdown_preview_github = 1 " use github-style markdown
 
 " .pl is always prolog (never perl)
 au FileType perl set filetype=prolog
