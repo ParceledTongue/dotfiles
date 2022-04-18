@@ -19,6 +19,9 @@ Plug 'eslint/eslint'
 Plug 'ellisonleao/glow.nvim'
 call plug#end()
 
+" Use the system keyboard by default
+set clipboard+=unnamedplus
+
 " colors
 color dracula
 

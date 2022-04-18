@@ -169,6 +169,17 @@ fi
 # Custom #
 ##########
 
+# Don't show rvm version in right prompt, since it appears for every directory
+# otherwise. It would be cool to configure this to show only in Ruby projects,
+# but this is fine for now.
+prompt_elements=()
+for item in ${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS[@]}; do
+  if [ "$item" != "rvm" ]; then
+    prompt_elements+=("$item")
+  fi
+done
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=("${prompt_elements[@]}")
+
 # PATH
 path+=$HOME/bin
 path+=$HOME/.cargo/bin
