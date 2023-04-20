@@ -39,12 +39,13 @@ pager=LESS='FSRX' less
 attend=cat, diff, glog, log, incoming, outgoing, lg, show, wiplog
 
 [alias]
-pu=pull --update
-wip=glog --rev=wip --template=wip
-wiplog=glog --template=wip
-desc=log -r $1 --template "{desc}"
-gc=strip --hidden -r 'extinct()'
-master=up --rev "bookmark(master)"
+pu = pull --update
+wip = glog --rev=wip --template=wip
+wiplog = glog --template=wip
+desc = log -r $1 --template "{desc}"
+gc = strip --hidden -r 'extinct()'
+master = up --rev "bookmark(master)"
+delete = !$HG prune $1 ; $HG book -d $1
 
 [revsetalias]
 wip = (parents(not public()) or not public() or . or head()) and (not obsolete() or orphan()^) and not closed()
