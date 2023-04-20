@@ -1,12 +1,13 @@
 [hooks]
 # pretxncommit.commitmsg=python:~/scripts/stop_me_from_shooting_myself_in_the_foot.py:enforce_commitmsg
 
-[ui]
-username = zpalumbo
-merge = idea
-
 [merge-tools]
-idea.args = merge $local $other $base $output
+p4.priority = 60
+p4.premerge = True
+p4.executable = /Applications/p4merge.app/Contents/MacOS/p4merge
+p4.gui = True
+p4.args = $base $local $other $output
+p4.binary = False
 
 [extensions]
 largefiles=
@@ -20,6 +21,9 @@ graphlog=
 purge=
 histedit=
 evolve=
+
+[ui]
+username = zpalumbo
 
 [paths]
 70 = ~/mim-workspace/release-7.0/mimjava
@@ -35,12 +39,13 @@ pager=LESS='FSRX' less
 attend=cat, diff, glog, log, incoming, outgoing, lg, show, wiplog
 
 [alias]
-pu=pull --update
-wip=glog --rev=wip --template=wip
-wiplog=glog --template=wip
-desc=log -r $1 --template "{desc}"
-gc=strip --hidden -r 'extinct()'
-master=up --rev "bookmark(master)"
+pu = pull --update
+wip = glog --rev=wip --template=wip
+wiplog = glog --template=wip
+desc = log -r $1 --template "{desc}"
+gc = strip --hidden -r 'extinct()'
+master = up --rev "bookmark(master)"
+delete = !$HG prune $1 ; $HG book -d $1
 
 [revsetalias]
 wip = (parents(not public()) or not public() or . or head()) and (not obsolete() or orphan()^) and not closed()
