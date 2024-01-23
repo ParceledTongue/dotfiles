@@ -33,6 +33,7 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     os_icon                 # os identifier
+    mimvpn                  # vpn status
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
@@ -1580,6 +1581,14 @@
   # typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
   typeset -g POWERLEVEL9K_TIME_PREFIX='%248Fat '
+
+  ####################################[ mimvpn: vpn status ]####################################
+  
+  function prompt_mimvpn() {
+    if type "mimvpn" &> /dev/null; then
+      p10k segment -i "$(mimvpn -i)"
+    fi
+  }
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
