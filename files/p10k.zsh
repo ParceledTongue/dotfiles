@@ -1586,7 +1586,7 @@
   
   function prompt_mimvpn() {
     if type "mimvpn" &> /dev/null; then
-      p10k segment -i "$(mimvpn -i)"
+      p10k segment -f "$(mimvpn -i color)" -i "$(mimvpn -i icon)"
     fi
   }
 
