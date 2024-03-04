@@ -30,6 +30,7 @@ username = zpalumbo
 71 = ~/mim-workspace/release-7.1/mimjava
 72 = ~/mim-workspace/release-7.2/mimjava
 73 = ~/mim-workspace/release-7.3/mimjava
+74 = ~/mim-workspace/release-7.4/mimjava
 stable = ~/mim-workspace/stable/mimjava
 
 
