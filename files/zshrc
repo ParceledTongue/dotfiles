@@ -201,6 +201,9 @@ if type "$preferred_editor" &> /dev/null; then
   export EDITOR="$preferred_editor"
 fi
 
+# zmv
+autoload zmv
+
 # Enable Mercurial VCS info (wizard will disable by default because it's slow)
 typeset -g POWERLEVEL9K_VCS_BACKENDS=(git hg)
 
