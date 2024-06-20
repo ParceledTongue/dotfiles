@@ -193,6 +193,7 @@ path+=/opt/homebrew/opt/php@8.0/sbin
 path+=/usr/local/opt/php@8.0/bin
 path+=/usr/local/opt/php@8.0/sbin
 path+=/Applications/IntelliJ\ IDEA\ CE.app/Contents/MacOS
+path+=$HOME/Library/Application\ Support/JetBrains/Toolbox/scripts
 
 # Default editor
 preferred_editor=nvim
