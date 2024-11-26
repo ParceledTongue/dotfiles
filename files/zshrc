@@ -154,8 +154,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias pip="python3 -m pip"
-alias python="python3"
+
+if type "python3" &> /dev/null; then
+  alias python="python3"
+  alias pip="python3 -m pip"
+fi
 
 if type "nvim" &> /dev/null; then
   alias vi="nvim"
@@ -180,20 +183,20 @@ for item in ${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS[@]}; do
 done
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=("${prompt_elements[@]}")
 
-# PATH
+# PATH (priority)
+path=($(brew --prefix php@8.0)/bin $path)
+path=($(brew --prefix php@8.0)/sbin $path)
+path=($(brew --prefix python)/bin $path)
+# PATH (additional)
 path+=$HOME/bin
 path+=$HOME/.cargo/bin
 path+=/usr/local/opt/coreutils/libexec/gnubin
 path+=$HOME/tools/arcanist/bin
 path+=$HOME/.jenv/bin
-path+=/opt/homebrew/opt/python@3.10/bin
-path+=/opt/homebrew/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/bin
-path+=/opt/homebrew/opt/php@8.0/bin
-path+=/opt/homebrew/opt/php@8.0/sbin
-path+=/usr/local/opt/php@8.0/bin
-path+=/usr/local/opt/php@8.0/sbin
 path+=/Applications/IntelliJ\ IDEA\ CE.app/Contents/MacOS
 path+=$HOME/Library/Application\ Support/JetBrains/Toolbox/scripts
+path+=$HOME/.rvm/bin
+export PATH
 
 # Default editor
 preferred_editor=nvim
@@ -242,5 +245,10 @@ if uname -r | grep -iq 'Microsoft' ; then
     winpath=`echo $winpath | sed 's/\//\\\\/g'`
     explorer.exe $winpath
   }
+fi
+
+# Support optional non-source controlled extensions and overrides
+if [ -e "$HOME/.zshrc_local" ]; then
+  source "$HOME/.zshrc_local"
 fi
 

@@ -3,19 +3,47 @@
   name = Zach Palumbo
 [pull]
   rebase = false
+	ff = only
 [credential]
-  helper =
-[credential "https://dev.azure.com"]
-  useHttpPath = true
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [include]
   path = ~/.gitconfig.local
-
 [credential "https://gitlab.mimsoftware.com"]
-	provider = generic
+  provider = generic
+[difftool]
+  prompt = false
 [merge]
-	tool = p4mergetool
-[mergetool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
-	trustExitCode = false
+	tool = intellij
+[difftool "intellij"]
+  cmd = '/Users/zpalumbo/Applications/IntelliJ IDEA Community Edition.app/Contents/MacOS/idea' diff "$LOCAL" "$REMOTE"
+[mergetool "intellij"]
+  cmd = '/Users/zpalumbo/Applications/IntelliJ IDEA Community Edition.app/Contents/MacOS/idea' merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+  trustExitCode = true
 [mergetool]
 	keepBackup = false
+[push]
+	autoSetupRemote = true
+	default = current
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[http]
+	postBuffer = 1048576000
+[fetch]
+	prune = true
+[rebase]
+  updateRefs = true
+[alias]
+  ci = commit
+  st = status
+  purge = clean -fd
+  gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
+  ru = "!git ls-remote --get-url | sed 's/git@\\(.*\\):\\(.*\\)\\.git/https:\\/\\/\\1\\/\\2/'"
+  or = "!open $(git ru)"
+  mimbook = "!git switch -c dev/$(whoami)/$(git rev-parse --abbrev-ref HEAD)/$1/$2 #"
+  goto = "!git switch $(git for-each-ref --format='%(refname:lstrip=-1)' --ignore-case 'refs/heads/**/*$1*' --count 1) #"
+  ff = "!: git branch ; $(git rev-parse --abbrev-ref $1@{u} | awk -F'/' -v local=$1 '{printf \"git fetch %s %s:%s\",$1,local,$2}') #"
+[core]
+  hooksPath = ~/scripts/githooks
+
+[log]
+	follow = true
