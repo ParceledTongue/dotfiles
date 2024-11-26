@@ -35,7 +35,11 @@ syntax on
 let g:airline_powerline_fonts = 1
 
 " ale
-set completeopt=menu,menuone,preview,noselect,noinsert
+set completeopt=menu,menuone,preview
+if has('nvim')
+  completeopt+=noselect,noinsert
+endif
+
 let g:ale_completion_enabled = 1
 let g:ale_cursor_detail = 1
 let g:ale_floating_preview = 1
