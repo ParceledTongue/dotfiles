@@ -1585,7 +1585,7 @@
   ####################################[ mimvpn: vpn status ]####################################
 
   function prompt_mimvpn() {
-    if type "mimvpn" &> /dev/null && [ $(ipconfig getsummary "$(networksetup -listallhardwareports | awk '/Wi-Fi|AirPort/{getline; print $NF}')" | grep '  SSID : ' | awk -F ': ' '{print $2}') != 'MIM' ]; then
+    if type "mimvpn" &> /dev/null && [ "$(ipconfig getsummary "$(networksetup -listallhardwareports | awk '/Wi-Fi|AirPort/{getline; print $NF}')" | grep '  SSID : ' | awk -F ': ' '{print $2}')" != 'MIM' ]; then
       p10k segment -f "$(mimvpn -i color)" -i "$(mimvpn -i icon)"
     fi
   }
