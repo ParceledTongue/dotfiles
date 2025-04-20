@@ -42,8 +42,11 @@
   mimbook = "!git switch -c dev/$(whoami)/$(git rev-parse --abbrev-ref HEAD)/$1/$2 #"
   goto = "!git switch $(git for-each-ref --format='%(refname:lstrip=-1)' --ignore-case 'refs/heads/**/*$1*' --count 1) #"
   ff = "!: git branch ; $(git rev-parse --abbrev-ref $1@{u} | awk -F'/' -v local=$1 '{printf \"git fetch %s %s:%s\",$1,local,$2}') #"
+  ecof = "!git log --grep=\"^\\s*(task|eco)\\s*[#-]\\s*$1( -|:)?\" --extended-regexp -i --name-status --pretty=format: --all | sort -u | grep . #"
+  coref = "!files=$(git ecof $1); if [ -n \"$files\" ]; then echo \"$(git ru):\" ; echo \"$files\n\"; fi #"
+  ls-stale = "!git branch --format \"%(refname:short) %(upstream:track)\" | awk '$2 == \"[gone]\" {print $1}'"
+  prune-stale = "!git ls-stale | xargs git branch -D"
 [core]
   hooksPath = ~/scripts/githooks
-
 [log]
 	follow = true
